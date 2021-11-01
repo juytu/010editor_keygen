@@ -16,7 +16,7 @@ python server.py
 ```
 #Download 
 # Java keygey
-  - Run app Keygen_010editer.jar in folder keygen
+  - Build then run app Keygen_010editer.jar in folder keygen
   ```shell
   java -jar "keygen\dist\Keygen_010editor.jar"
   ```
