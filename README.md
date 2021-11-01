@@ -18,4 +18,3 @@ python server.py
 # Java keygen
 - Write something
 - Write an other text
-- Something
