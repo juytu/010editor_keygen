@@ -14,7 +14,8 @@ Author:Nguyen Duy Tu
 ```shell
 python server.py
 ```
-#Download 
+# Download 
+- JDK, JRE to run Java program
 # Java keygey
   - Build then run app Keygen_010editer.jar in folder keygen
   ```shell
