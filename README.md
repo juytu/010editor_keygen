@@ -14,7 +14,9 @@ Author:Nguyen Duy Tu
 ```shell
 python server.py
 ```
-
-# Java keygen
-- Write something
-- Write an other text
+#Download 
+# Java keygey
+  - Run app Keygen_010editer.jar in folder keygen
+  ```shell
+  java -jar "keygen\dist\Keygen_010editor.jar"
+  ```

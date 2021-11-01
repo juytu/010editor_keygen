@@ -5,6 +5,11 @@
  */
 package keygen_010editor;
 
+
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author duytu
@@ -28,12 +33,15 @@ public class Choice_Username extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         textDay = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jlabel_password = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         textUser = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -49,27 +57,41 @@ public class Choice_Username extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Keygen 010 Editor");
 
         jLabel2.setText("Number license");
+
+        jLabel3.setText("Expiry day");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textDay)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textDay, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        jlabel_password.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlabel_password.setForeground(new java.awt.Color(153, 0, 51));
 
         jButton1.setText("Password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,19 +105,23 @@ public class Choice_Username extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jButton1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jlabel_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         textUser.addActionListener(new java.awt.event.ActionListener() {
@@ -113,41 +139,38 @@ public class Choice_Username extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textUser))
-                        .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(11, 11, 11)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         String user = textUser.getText();
         user = user.toUpperCase();
-        System.out.printf("User name = %s \n",user);
+        //ystem.out.printf("User name = %s \n",user);
         int license = Integer.parseInt(textDay.getText());
         
         int[] dword_EB6190 = {
@@ -203,11 +226,23 @@ public class Choice_Username extends javax.swing.JFrame {
    ,  0x51E63E80 , 0x5CF2670F , 0x21CD0A03 , 0x5CFF0261 , 0x33AE061E 
    ,  0x3BB6345F , 0x5D814A75 , 0x257B5DF4 , 0x0A5C2C5B , 0x16A45527 
    ,  0x16F23945};
+        Date date2= jDateChooser2.getDateEditor().getDate();
+            Date date1 = java.util.Calendar.getInstance().getTime();
+            Calendar c1 = Calendar.getInstance();
+            Calendar c2 = Calendar.getInstance();
+            
+            c1.setTime(date1);
+            c2.setTime(date2);
+            
+            int noDay = (int) ((c2.getTime().getTime() - c1.getTime().getTime())/86400000);
+            int epoch = (int) (System.currentTimeMillis()/1000/86400);
+            int exDay = noDay + epoch;
+            
         int[] passwordFinal = new int[10];
         passwordFinal[3] = 0xAC;
         int password_4byte = 0;
         int a2 = 1;
-        int a3 = 0xFFFF;
+        int a3 = exDay;
         int length_username;
         int count;
         int v9;
@@ -234,20 +269,20 @@ public class Choice_Username extends javax.swing.JFrame {
             v19 = 17 * a3;
             do
             {
-                System.out.println("-------------------------");
+                //System.out.println("-------------------------");
                 v8[count] = user.charAt(count);
-                System.out.println(v8[count]);
+                //System.out.println(v8[count]);
                 v15 = v19;
-                System.out.println(v15);
+                //System.out.println(v15);
                 v9 = password_4byte + dword_EB6190[v8[count]];
-                System.out.printf("v9 = %x\n",v9);
+                //System.out.printf("v9 = %x\n",v9);
                 if(a2 == 1 )
                 {
                     v10 = dword_EB6190[(v8[count] + 47) & 0xff] * (v9 ^ dword_EB6190[(v8[count] + 13) & 0xff]);
-                    System.out.printf("v10 = %x \n",v10);
+                    //System.out.printf("v10 = %x \n",v10);
                     //printf("v10_1 = %x\n", v10);
                     v11 = v18;
-                    System.out.println("v11 = "+v11);
+                    //System.out.println("v11 = "+v11);
                 }
                 else
                 {
@@ -259,39 +294,64 @@ public class Choice_Username extends javax.swing.JFrame {
                 //System.out.println(v19);
                 ++count;
                 v18 += 19;
-                System.out.println("v18 = " +v18);
+                //System.out.println("v18 = " +v18);
                 v17 += 7;
-                System.out.println("v17 = "+v17);
+                //System.out.println("v17 = "+v17);
                 v12 = dword_EB6190[v11] + v10;
-                System.out.printf("dwv11 = %x \n",dword_EB6190[v11]);
-                System.out.printf("v12 = %x \n",v12);
+               // System.out.printf("dwv11 = %x \n",dword_EB6190[v11]);
+                //System.out.printf("v12 = %x \n",v12);
                 v13 = v16 & 0xff;
-                System.out.printf("v13 = %x \n",v13);
+                //System.out.printf("v13 = %x \n",v13);
                 v16 += 13;
-                System.out.printf("v16 = %x\n" ,v16);
+                //System.out.printf("v16 = %x\n" ,v16);
                 password_4byte = (dword_EB6190[v13] + v12);
                 //printf("%x\n", password_4byte);
 
                 password_4byte += dword_EB6190[(v15) & 0xff];
                 
             }while(count < length_username);
-            System.out.printf("Password 4 byte = %x\n",password_4byte);
-            String str = " - ";
+            //System.out.printf("Password 4 byte = %x\n",password_4byte);
+            String str = " Password: ";
             for(int i=0;i <4; i++)
             {
                 passwordFinal[i + 4] = password_4byte >> (i*8) & 0xff;
-                System.out.printf("Pass = %x\n",passwordFinal[i+4]);
-//                String s = String.valueOf(passwordFinal[i+ 4]);
-                String s = Integer.toHexString(passwordFinal[i+ 4]);
-                System.out.printf("s = %s\n",s);
-                str = str.concat(s,"-");
-                
+                //System.out.printf("Pass = %x\n",passwordFinal[i+4]); 
             }
+            int processpass;
+            processpass = ((((a3 * 0x11) ^ 0xff000000) ^ 0xffe53167) + 0x2c175) ^ 0x22c078 ^ 0x5b8c27 ;
+            int process_license;
+            process_license = (((license * 0xB ^ 0x3421) - 0x4D30) ^ 0x7892) & 0xffff;
             
+            passwordFinal[0] = (processpass & 0xff) ^ passwordFinal[6];
+            passwordFinal[8] = ((processpass >> 8) & 0xff) ^ passwordFinal[4];
+            passwordFinal[9] = ((processpass >> 16) & 0xff) ^ passwordFinal[5];
+            passwordFinal[2] = (process_license & 0xff) ^ passwordFinal[5];
+            passwordFinal[1] = ((process_license >> 8) & 0xff) ^ passwordFinal[7];
+            
+            for(int i=0;i < 10;i++)
+            {
+                String s = Integer.toHexString(passwordFinal[i]);
+                if(passwordFinal[i] < 10)
+                {
+                    
+                    str = str.concat("0"+ s + " ");
+                    
+                }
+                else
+                {
+                    str = str.concat(s + " ");
+                }           
+            }
+            str = str.toUpperCase();
             jlabel_password.setText(str);
+            
+            
+            
+            
+            System.out.println("Done!!!");
         }
         //String pass;
-        Keygen_010editor keygen = new Keygen_010editor(user,day);
+        //ygen_010editor keygen = new Keygen_010editor(user,day);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void textUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUserActionPerformed
@@ -326,17 +386,23 @@ public class Choice_Username extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Choice_Username().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Choice_Username jm=new Choice_Username();
+            ImageIcon king=new ImageIcon("C:\\Users\\PV\\Desktop\\DownloadFile\\icons8-unlock-24.png");
+            jm.setIconImage(king.getImage());
+            jm.setLocationRelativeTo(null);
+            jm.setVisible(true);
+
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
