@@ -8,7 +8,6 @@ package keygen_010editor;
 
 import java.util.Calendar;
 import java.util.Date;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -33,15 +32,14 @@ public class Choice_Username extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         textDay = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
-        jlabel_password = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jlabel_password = new javax.swing.JTextField();
         textUser = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -71,10 +69,12 @@ public class Choice_Username extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(textDay, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,13 +90,16 @@ public class Choice_Username extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jlabel_password.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jlabel_password.setForeground(new java.awt.Color(153, 0, 51));
-
         jButton1.setText("Password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jlabel_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jlabel_passwordActionPerformed(evt);
             }
         });
 
@@ -107,11 +110,11 @@ public class Choice_Username extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(152, 152, 152)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33)
+                        .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -119,8 +122,8 @@ public class Choice_Username extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jlabel_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -226,7 +229,7 @@ public class Choice_Username extends javax.swing.JFrame {
    ,  0x51E63E80 , 0x5CF2670F , 0x21CD0A03 , 0x5CFF0261 , 0x33AE061E 
    ,  0x3BB6345F , 0x5D814A75 , 0x257B5DF4 , 0x0A5C2C5B , 0x16A45527 
    ,  0x16F23945};
-        Date date2= jDateChooser2.getDateEditor().getDate();
+            Date date2= jDateChooser2.getDate();
             Date date1 = java.util.Calendar.getInstance().getTime();
             Calendar c1 = Calendar.getInstance();
             Calendar c2 = Calendar.getInstance();
@@ -247,7 +250,7 @@ public class Choice_Username extends javax.swing.JFrame {
         int count;
         int v9;
         int v10;
-        int v12 = 0;
+        int v12;
         int v16;
         int v17;
         int v18;
@@ -311,7 +314,7 @@ public class Choice_Username extends javax.swing.JFrame {
                 
             }while(count < length_username);
             //System.out.printf("Password 4 byte = %x\n",password_4byte);
-            String str = " Password: ";
+            String str = "";
             for(int i=0;i <4; i++)
             {
                 passwordFinal[i + 4] = password_4byte >> (i*8) & 0xff;
@@ -331,16 +334,17 @@ public class Choice_Username extends javax.swing.JFrame {
             for(int i=0;i < 10;i++)
             {
                 String s = Integer.toHexString(passwordFinal[i]);
-                if(passwordFinal[i] < 10)
+                if(passwordFinal[i] < 16)
                 {
                     
-                    str = str.concat("0"+ s + " ");
+                    str = str.concat("0"+ s);
                     
                 }
                 else
                 {
-                    str = str.concat(s + " ");
-                }           
+                    str = str.concat(s);
+                }
+               
             }
             str = str.toUpperCase();
             jlabel_password.setText(str);
@@ -357,6 +361,10 @@ public class Choice_Username extends javax.swing.JFrame {
     private void textUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textUserActionPerformed
+
+    private void jlabel_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlabel_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jlabel_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,8 +396,8 @@ public class Choice_Username extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             Choice_Username jm=new Choice_Username();
-            ImageIcon king=new ImageIcon("C:\\Users\\PV\\Desktop\\DownloadFile\\icons8-unlock-24.png");
-            jm.setIconImage(king.getImage());
+            //ImageIcon king=new ImageIcon("C:\\Users\\PV\\Desktop\\DownloadFile\\icons8-unlock-24.png");
+            //jm.setIconImage(king.getImage());
             jm.setLocationRelativeTo(null);
             jm.setVisible(true);
 
@@ -397,7 +405,6 @@ public class Choice_Username extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -406,7 +413,7 @@ public class Choice_Username extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel jlabel_password;
+    private javax.swing.JTextField jlabel_password;
     private javax.swing.JTextField textDay;
     private javax.swing.JTextField textUser;
     // End of variables declaration//GEN-END:variables
